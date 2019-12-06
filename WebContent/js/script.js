@@ -1,20 +1,18 @@
 function form_validate(Input) {
     var pricePatt = /^[0-9]+$/;
-	var price = document.forms["InputValidate"]["txtPrice"].value; 
-	var name = document.forms["InputValidate"]["txtName"].value; 
-	var dateLaunch = document.forms["InputValidate"]["txtLaunch"].value;
-	if(name == " " || name == null) {
+	var price = document.InputValidate.txtPrice.value; 
+	var name = document.InputValidate.txtName; 
+	var dateLaunch = document.InputValidate.txtLaunch.value;
+	if(name.value == " " || name.value == null) {
 		alert("Item Name should not be empty...");
-		name.focus();
 		return false;
-	}
-	if(name.length < 2) {
-		alert("Item name should be greater than 2...");
 		name.focus();
+	}
+	if(name.value.length < 2) {
+		window.alert("Item name should be greater than 2...");
 		return false;
 	}
 	if(Input.value.match(pricePatt)) {
-		price.focus();
 		return true;
 	}
 	else {
@@ -27,5 +25,6 @@ function form_validate(Input) {
 	}
 	return true;	
 }
+
 
 // Include truYum form validation functions here
