@@ -1,4 +1,4 @@
-function form_validate(Input) {
+function validate() {
     var pricePatt = /^[0-9]+$/;
 	var price = document.InputValidate.txtPrice.value; 
 	var name = document.InputValidate.txtName; 
