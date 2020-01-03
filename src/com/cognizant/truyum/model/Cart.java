@@ -18,6 +18,7 @@ public class Cart {
 		this.total = total;
 		this.menuItemList = menuItemList;
 	}
+
 	public List<MenuItem> getMenuItemList() {
 		return menuItemList;
 	}

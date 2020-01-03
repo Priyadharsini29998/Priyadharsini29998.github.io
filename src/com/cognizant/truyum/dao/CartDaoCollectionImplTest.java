@@ -8,9 +8,9 @@ public class CartDaoCollectionImplTest {
 
 	public static void main(String[] args) {
 		try {
-			//testGetAllCartItems();
+			testGetAllCartItems();
 			testAddCartItem();
-			//testGetAllCartItems();
+			testGetAllCartItems();
 			testRemoveCartItem();
 			testGetAllCartItems();
 
@@ -23,34 +23,32 @@ public class CartDaoCollectionImplTest {
 
 	public static void testGetAllCartItems() throws CartEmptyException {
 		CartDao cartDao = new CartDaoCollectionImpl();
-		cartDao.getAllCartItems(1);
+		List<MenuItem> menuItemListCustomer = cartDao.getAllCartItems(1);
+		
+		for (MenuItem menuItem : menuItemListCustomer) {
+			System.out.println(menuItem);
+		}
+		
 	}
 
 	public static void testAddCartItem() throws CartEmptyException {
 		CartDao cartDao = new CartDaoCollectionImpl();
-		cartDao.addCartItem(1, 2l);
-		cartDao.addCartItem(1, 5l);
-		cartDao.addCartItem(2, 1l);
-		cartDao.addCartItem(2, 3l);
-
-		List<MenuItem> menuItemListCustomer = cartDao.getAllCartItems(1);
 		System.out.println("User added Cart List is Checkout");
-		for (MenuItem menuItem : menuItemListCustomer) {
-			System.out.println(menuItem);
-		}
-
-	}
+		cartDao.addCartItem(1, 2l);
+		cartDao.addCartItem(1, 3l);
+		
+}
 
 	public static void testRemoveCartItem() {
 		CartDao cartDao = new CartDaoCollectionImpl();
-		cartDao.removeCartItem(1, 2l);
+		System.out.println("User Deleted Cart List Checkout");
 		try {
-			cartDao.getAllCartItems(1l);
+			cartDao.removeCartItem(1, 2l);
 		} catch (CartEmptyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 	}
 
 }

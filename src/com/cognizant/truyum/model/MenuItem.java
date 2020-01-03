@@ -28,6 +28,8 @@ public class MenuItem {
 		this.freeDelivery = freeDelivery;
 	}
 
+	
+
 	public long getId() {
 		return id;
 	}

@@ -1,30 +1,32 @@
 function validate() {
-    var pricePatt = /^[0-9]+$/;
-	var price = document.InputValidate.txtPrice.value; 
-	var name = document.InputValidate.txtName; 
-	var dateLaunch = document.InputValidate.txtLaunch.value;
-	if(name.value == " " || name.value == null) {
-		alert("Item Name should not be empty...");
-		return false;
-		name.focus();
-	}
-	if(name.value.length < 2) {
-		window.alert("Item name should be greater than 2...");
+	var itemName = document.forms["InputValidate"]["txtName"].value;
+	if (itemName == "") {
+		alert("Title is required.");
+		document.InputValidate.txtName.focus();
 		return false;
 	}
-	if(Input.value.match(pricePatt)) {
-		return true;
-	}
-	else {
-		alert("Please provide numeric value for price...");
+	if ((itemName.length < 2) || (itemName.length > 30)) {
+		alert("Title should have 2 to 65 characters.");
 		return false;
 	}
-	if(dateLaunch == " " || dateLaunch == null) {
-		alert("Date of Launch should not be empty...");
+	var itemPrice = document.forms["InputValidate"]["txtPrice"].value;
+	if (itemPrice == "") {
+		alert("Price is required.");
 		return false;
 	}
-	return true;	
+	if (/[^0-9/.]/.test(itemPrice)) {
+		alert("Price has to be a number.");
+		return false;
+	}
+	var launchDate = document.forms["InputValidate"]["dateOfLaunch"].value;
+	if (launchDate == "") {
+		alert("Date of Launch is required.");
+		return false;
+	}
+
+	var itemCategory = document.forms["InputValidate"]["Category"].value;
+	if (itemCategory == "") {
+		alert("Category is required.");
+		return false;
+	}
 }
-
-
-// Include truYum form validation functions here
