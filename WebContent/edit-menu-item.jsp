@@ -33,9 +33,11 @@
 				<tr>
 					<td><input type="text" class="right" id="txtPrice"
 						name="txtPrice" size="15" value="${menuItem.price}"></td>
-					<td><input type="radio" id="rdoYes" name="txtRadio"> <label
-						for="rdYes"> Yes </label> <input type="radio" id="rdoNo"
-						name="rdo""> <label for="rdNo"> No </label></td>
+					<td>
+					<input type="radio" id="rdoYes" name="txtRadio"> 
+					<label for="rdYes"> Yes </label> 
+					<input type="radio" id="rdoNo" name="txtRadio"> 
+					<label for="rdNo"> No </label></td>
 
 					<td><input type="text" id="txtLaunch" name="txtLaunch"
 						value="<fmt:formatDate pattern="dd/MM/yyyy" value="${menuItem.dateOfLaunch}"/>">
