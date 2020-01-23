@@ -1,6 +1,7 @@
 package com.cognizant.truyum.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -62,7 +63,12 @@ public class EditMenuItemServlet extends HttpServlet {
 
 			MenuItem menuItem = new MenuItem(id, name, price, active, result, category, freeDelivery);
 			MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
-			menuItemDao.modifyMenuItem(menuItem);
+			try {
+				menuItemDao.modifyMenuItem(menuItem);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			request.setAttribute("msg", "Menu Item details saved successfully");
 			RequestDispatcher rd = request.getRequestDispatcher("edit-menu-item-status.jsp");
 			rd.forward(request, response);

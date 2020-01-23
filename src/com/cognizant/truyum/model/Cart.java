@@ -31,5 +31,6 @@ public class Cart {
 	}
 	public double getTotal() {
 		return total;
+
 	}
 }
